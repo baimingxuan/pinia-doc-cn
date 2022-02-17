@@ -1,0 +1,16 @@
+{
+  "name": "pinia-doc-cn",
+  "version": "1.0.0",
+  "description": "pinia chinese document",
+  "main": "index.js",
+  "repository": "https://github.com/baimingxuan/pinia-doc-cn.git",
+  "author": "baimingxuan",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.9.7"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
