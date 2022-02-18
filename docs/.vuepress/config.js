@@ -6,16 +6,14 @@ module.exports = {
             { text: '指南', link: '' },
             { text: 'GitHub', link: 'https://github.com/baimingxuan/pinia-doc-cn' },
         ],
-        sidebar:{
-            '/guide/': [
-                '/guide/',
-                {
-                    title: '指南',
-                    children: [
-                        '/guide/README',
-                    ]
-                }
-            ]
-        }
+        sidebar: [
+            {
+                title: '介绍',
+                path: '/introduction/',
+                children: [
+                    '/'
+                ]
+            }
+        ]
     }
 }
