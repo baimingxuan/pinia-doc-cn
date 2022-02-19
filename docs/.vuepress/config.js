@@ -9,7 +9,7 @@ module.exports = {
         sidebar: [
             {
                 title: '介绍',
-                path: '/introduction/',
+                path: '/introduction/Introduction',
                 children: [
                     '/'
                 ]
