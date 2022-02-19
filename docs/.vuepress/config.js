@@ -11,7 +11,8 @@ module.exports = {
                 title: '介绍',
                 path: '/introduction/Introduction',
                 children: [
-                    '/'
+                    { title: 'Pinia是什么？', path: '/introduction/Introduction' },
+                    { title: '快速上手', path: '/introduction/Installation' }
                 ]
             }
         ]
