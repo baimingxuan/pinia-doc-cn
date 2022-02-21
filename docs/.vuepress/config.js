@@ -14,6 +14,17 @@ module.exports = {
                     { title: 'Pinia是什么？', path: '/introduction/Introduction' },
                     { title: '快速上手', path: '/introduction/Installation' }
                 ]
+            },
+            {
+                title: '核心概念',
+                path: '/core/defined',
+                children: [
+                    { title: '定义Store', path: '/core/defined' },
+                    { title: 'State', path: '/core/State' },
+                    { title: 'Getters', path: '/core/Getters' },
+                    { title: 'Actions', path: '/core/Actions' },
+                    { title: 'Plugins', path: '/core/Plugins' }
+                ]
             }
         ]
     }

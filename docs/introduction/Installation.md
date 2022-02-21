@@ -2,7 +2,7 @@
 
 使用您最喜欢的包管理工具安装pinia：
 
-```
+```sh
 yarn add pinia
 # or with npm
 npm install pinia
@@ -15,7 +15,7 @@ npm install pinia
 
 创建一个 pinia（the root store）并将其传递给应用程序：
 
-```
+```js
 import { createPinia } from 'pinia'
 
 app.use(createPinia())
@@ -23,7 +23,7 @@ app.use(createPinia())
 
 如果您使用的是Vue 2，您还需要安装一个插件，并将创建的 pinia 注入到应用程序的根目录:
 
-```
+```js
 import { createPinia, PiniaVuePlugin } from 'pinia'
 
 Vue.use(PiniaVuePlugin)

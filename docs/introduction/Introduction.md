@@ -31,7 +31,7 @@ Pinia 是 Vue 的一个 Store，它允许您跨组件/页面共享状态。如�
 
 这就是在 API 方面使用 Pinia 的样子（请务必查看入门指南中的完整说明）。首先创建一个 Store：
 
-```
+```js
 // stores/counter.js
 import { defineStore } from 'pinia'
 
@@ -51,7 +51,7 @@ export const useCounterStore = defineStore('counter', {
 
 然后在组件中使用它：
 
-```
+```js
 import { useCounterStore } from '@/stores/counter'
 
 export default {
@@ -69,7 +69,7 @@ export default {
 
 您甚至可以使用一个函数（类似于组件的 setup() ）来为更高级的用例定义一个 Store：
 
-```
+```js
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)
   function increment() {
@@ -82,7 +82,7 @@ export const useCounterStore = defineStore('counter', () => {
 
 如果您还不熟悉 setup() 和 Composition API，不用担心，Pinia 还支持一组类似 Vuex 的辅助函数。您也可以用同样的方式定义 Store，但是要使用 mapStores()、mapState() 或 mapActions() 调用它：
 
-```
+```js
 const useCounterStore = defineStore('counter', {
   state: () => ({ count: 0 }),
   getters: {
@@ -129,7 +129,7 @@ Pinia（发音为 /piːnjʌ/，就像英语中的 “peenya”）是最接近pi�
 
 下面是一个更完整的API示例，您将在 Pinia 中使用它，甚至在 JavaScript 中使用它的类型。对于一些人来说，这可能已经足够了，不需要进一步阅读就可以开始了，但我们仍然建议阅读完文档的其余部分，甚至跳过这个例子，当你阅读了所有的核心概念后再回来。
 
-```
+```js
 import { defineStore } from 'pinia'
 
 export const todos = defineStore('todos', {
