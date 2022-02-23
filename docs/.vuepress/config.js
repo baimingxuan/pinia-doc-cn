@@ -50,6 +50,21 @@ module.exports = {
                         path: '/core/Plugins'
                     }
                 ]
+            },
+            {
+                title: '服务端渲染（SSR）',
+                path: '/ssr/vue',
+                collapsable: false,
+                children: [
+                    {
+                        title: 'Vue和Vite',
+                        path: '/ssr/vue'
+                    },
+                    {
+                        title: 'Next',
+                        path: '/ssr/next'
+                    }
+                ]
             }
         ]
     }
