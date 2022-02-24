@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/baimingxuan/pinia-doc-cn.git",
   "author": "baimingxuan",
-  "license": "MIT",
+  "license": "Apache",
   "devDependencies": {
     "vuepress": "^1.9.7"
   },
