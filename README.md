@@ -1,6 +1,6 @@
 <div align="center">
-    <h1>Pinia 中文文档</h1>
-    <h2 style="margin: 0">文档内容详细翻译自官方文档</h2>
+    <h1 style="border-bottom: none">Pinia 中文文档</h1>
+    <h2 style="margin: 0; border-bottom: none">文档内容详细翻译自官方文档</h2>
 </div>
 
 
