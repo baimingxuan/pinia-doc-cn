@@ -1,10 +1,10 @@
 <div align="center">
-    <h2 style="margin-bottom: 0;">Pinia 中文文档</h2>
-    <p>文档内容详细翻译自官方文档</p>
+    <h1 style="margin-bottom: 0;">Pinia 中文文档</h1>
+    <h3 style="margin-top: 0;">文档内容详细翻译自官方文档</h3>
 </div>
 <br>
 
-## 开发
+### 开发
 
 ```sh
 # 克隆项目
