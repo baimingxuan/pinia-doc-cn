@@ -11,16 +11,16 @@ module.exports = {
         sidebar: [
             {
                 title: '介绍',
-                path: '/introduction/Introduction',
+                path: '/guide/introduction',
                 collapsable: false,
                 children: [
                     {
                         title: 'Pinia是什么？',
-                        path: '/introduction/Introduction'
+                        path: '/guide/introduction'
                     },
                     {
                         title: '快速上手',
-                        path: '/introduction/Installation'
+                        path: '/guide/getting-started'
                     }
                 ]
             },
