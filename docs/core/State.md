@@ -1,6 +1,6 @@
 # State
 
-大多数时候，state 是 Store 的中心部分。人们通常从定义应用程序的 state 开始。在 Pinia 中，state 被定义为一个返回初始 state 的函数。这保证了 Pinia 在服务器端和客户端都能使用。
+大多数时候，`state`是`Store`的中心部分。人们通常从定义应用程序的`state`开始。在`Pinia` 中，`state`被定义为一个返回初始`state`的函数。这保证了`Pinia`在服务器端和客户端都能使用。
 
 ```js
 import { defineStore } from 'pinia'
@@ -20,15 +20,13 @@ const useStore = defineStore('storeId', {
 
 > TIP
 >
-> 如果您使用Vue 2，您在 state 中创建的数据应遵循与 Vue 实例中数据相同的规则，即 state 对象必须是普通的，并且在向其添加新属性时需要调用 Vue.set()。
->
-> 另请参阅：Vue#data。
+> 如果您使用`Vue 2`，您在`state`中创建的数据应遵循与`Vue`实例中`data`相同的规则，即 `state`对象必须是普通的，并且在向其添加新属性时需要调用`Vue.set()`。另请参阅：[Vue#data](https://vuejs.org/v2/api/#data)
 
 
 
 ## 访问State
 
-默认情况下，你可以通过 store 实例直接读写 state:
+默认情况下，你可以通过`Store`实例直接读写`state`:
 
 ```js
 const store = useStore()
@@ -40,7 +38,7 @@ store.counter++
 
 ## 重置State
 
-您可以通过调用 store 上的 $reset() 方法将 state 重置为初始值:
+您可以通过调用`store`上的`$reset()`方法将`state`重置为初始值:
 
 ```js
 const store = useStore()
@@ -48,13 +46,11 @@ const store = useStore()
 store.$reset()
 ```
 
-
-
 ### 使用Options API
 
-对于以下示例，您可以假设创建了以下 Store:
+对于以下示例，您可以假设创建了以下`store`:
 
-```vue
+```js
 // Example File Path:
 // ./src/stores/counterStore.js
 
@@ -67,11 +63,11 @@ const useCounterStore = defineStore('counterStore', {
 })
 ```
 
-### 在 setup() 中使用
+### 使用setup()
 
-虽然 Composition API 并不适合所有人，但是 setup() 钩子可以让 Pinia 更容易在 Options API中使用。不需要额外的辅助函数!
+虽然`Composition API`并不适合所有人，但是`setup()`钩子可以让`Pinia`更容易在`Options API`中使用。不需要额外的辅助函数!
 
-```vue
+```js
 import { useCounterStore } from '../stores/counterStore'
 
 export default {
@@ -88,11 +84,11 @@ export default {
 }
 ```
 
-### 不在 setup() 中使用
+### 不使用setup()
 
-如果您不使用 Composition API，而您使用的是 computed, methods，…，则你可以使用mapState() 辅助函数将状态属性映射为只读计算属性：
+如果您不使用`Composition API`，而您使用的是`computed`, `methods`，…，则你可以使用`mapState()`辅助函数将状态属性映射为只读计算属性：
 
-```vue
+```js
 import { mapState } from 'pinia'
 import { useCounterStore } from '../stores/counterStore'
 
@@ -117,9 +113,9 @@ export default {
 
 #### 可修改的 State
 
-如果您希望能够写入这些状态属性（例如，如果您有一个表单），您可以使用 mapWritableState() 代替。请注意，您不能像 mapState() 那样传递函数：
+如果您希望能够写入这些状态属性（例如，如果您有一个表单），您可以使用`mapWritableState()`代替。请注意，您不能像`mapState()`那样传递函数：
 
-```vue
+```js
 import { mapWritableState } from 'pinia'
 import { useCounterStore } from '../stores/counterStore'
 
@@ -138,13 +134,13 @@ export default {
 ```
 
 > TIP
-> 您不需要 mapWritableState() 来处理像数组这样的集合，除非你用 cartItems = [] 来替换整个数组，mapState() 仍然允许你在你的集合上调用方法。
+> 您不需要`mapWritableState()`来处理像数组这样的集合，除非你用`cartItems = []`来替换整个数组，`mapState()`仍然允许你在你的集合上调用方法。
 
 
 
 ## 改变 State
 
-除了直接使用`store.counter++` 改变store之外，你也可以调用`$patch`方法。它允许您使用部分 state 对象同时应用到多个改变:
+除了直接使用`store.counter++` 改变`store`之外，你也可以调用`$patch`方法。它允许您使用部分`state`对象同时应用到多个改变:
 
 ```js
 store.$patch({
@@ -153,7 +149,7 @@ store.$patch({
 })
 ```
 
-然而，使用这种语法应用某些 mutations 确实很难或代价高昂：任何集合修改(例如，从数组中添加、删除、修改元素）都需要您创建一个新集合。正因为如此，`$patch`方法也接受一个函数来对这种难以应用于 patch 对象的 mutations 进行分组:
+然而，使用这种语法应用某些改变确实很难或代价高昂：任何集合修改(例如，从数组中添加、删除、修改元素）都需要您创建一个新集合。正因为如此，`$patch`方法也接受一个函数来对这种难以应用于`patch`对象的改变进行分组:
 
 ```js
 cartStore.$patch((state) => {
@@ -162,19 +158,19 @@ cartStore.$patch((state) => {
 })
 ```
 
-这里的主要区别是 $patch()允许您将多个变更分组到 devtools 中的一个条目中。注意，对**`state`**和**`$patch()`**的直接更改将呈现在 devtools 中，并且需要花费些时间(在Vue 3中还没出现)。
+这里的主要区别是`$patch()`允许您在`devtools`中将多个改变分组到一个条目中。注意，对**`state`**和**`$patch()`**的直接更改将呈现在`devtools`中，并且需要花费些时间(在`Vue 3`中还没出现)。
 
 
 
 ## 替换 State
 
-您可以通过将 store 的 $state 属性设置一个新对象来替换整个 store 的状态:
+您可以通过将`store`的`$state`属性设置一个新对象来替换整个`store`的状态:
 
 ```js
 store.$state = { counter: 666, name: 'Paimon' }
 ```
 
-您还可以通过更改 `pinia`实例的 state 来替换应用程序的整个状态。这在[SSR for hydration](https://pinia.vuejs.org/ssr/#state-hydration)中使用。
+您还可以通过更改 `pinia`实例的`state`来替换应用程序的整个状态。这在[SSR 注水](https://pinia.vuejs.org/ssr/#state-hydration)中使用。
 
 ```js
 pinia.state.value = {}
@@ -184,7 +180,7 @@ pinia.state.value = {}
 
 ## 订阅 State
 
-您可以通过 store 的 $subscribe() 方法查看 state 及其变化，这与 Vuex 的 [subscribe 方法](https://vuex.vuejs.org/api/#subscribe)类似。与常规的 watch() 相比，使用 $subscribe() 的优势在于，订阅只会在 patches 之后触发一次(例如，当使用上面的函数版本时)。
+您可以通过`store`的`$subscribe()`方法查看状态及其变化，这与`Vuex`的 [subscribe 方法](https://vuex.vuejs.org/api/#subscribe)类似。与常规的`watch()`相比，使用`$subscribe()`的优势在于，订阅只会在`patches`之后触发一次(例如，当使用上面的函数版本时)。
 
 ```js
 cartStore.$subscribe((mutation, state) => {
@@ -200,9 +196,9 @@ cartStore.$subscribe((mutation, state) => {
 })
 ```
 
-默认情况下，状态订阅被绑定到添加它们的组件上(如果 store 在组件的setup()中)。这意味着，当组件被卸载时，它们将被自动删除。如果你想在组件卸载后保留它们，传递`{ detached: true }` 作为第二个参数来从当前组件中分离 state 的订阅:
+默认情况下，状态订阅被绑定到添加它们的组件上(如果`store`在组件的`setup()`中)。这意味着，当组件被卸载时，它们将被自动删除。如果你想在组件卸载后保留它们，传递`{ detached: true }` 作为第二个参数来从当前组件中分离状态订阅:
 
-```vue
+```js
 export default {
   setup() {
     const someStore = useSomeStore()
@@ -216,9 +212,9 @@ export default {
 ```
 
 > TIP
-> 您可以查看 pinia 实例上的整个状态：
+> 您可以查看`Pinia```实例上的整个状态：
 
-```vue
+```js
 watch(
   pinia.state,
   (state) => {
