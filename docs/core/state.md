@@ -54,7 +54,7 @@ store.$reset()
 // Example File Path:
 // ./src/stores/counterStore.js
 
-import { defineStore } from 'pinia',
+import { defineStore } from 'pinia'
 
 const useCounterStore = defineStore('counterStore', {
   state: () => ({
@@ -96,7 +96,7 @@ export default {
   computed: {
     // gives access to this.counter inside the component
     // same as reading from store.counter
-    ...mapState(useCounterStore, ['counter'])
+    ...mapState(useCounterStore, ['counter']),
     // same as above but registers it as this.myOwnName
     ...mapState(useCounterStore, {
       myOwnName: 'counter',
@@ -124,7 +124,7 @@ export default {
     // gives access to this.counter inside the component and allows setting it
     // this.counter++
     // same as reading from store.counter
-    ...mapWritableState(useCounterStore, ['counter'])
+    ...mapWritableState(useCounterStore, ['counter']),
     // same as above but registers it as this.myOwnName
     ...mapWritableState(useCounterStore, {
       myOwnName: 'counter',
