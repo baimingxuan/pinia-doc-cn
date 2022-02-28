@@ -2,9 +2,9 @@
 
 > TIP
 >
-> 如果您使用的是Nuxt.js，则需要阅读[这些说明](https://pinia.vuejs.org/ssr/nuxt.html)。
+> 如果您使用的是`Nuxt.js`，您需要阅读[这些说明](https://baimingxuan.net/pinia-doc-cn/ssr/nuxt.html)。
 
-使用`Pinia`创建`stores`对于`SSR`来说应该是开箱即用的，只要你在`setup`函数，`getters`和`actions`的顶部调用你的`useStore()`函数:
+使用`Pinia`创建`stores`对于`SSR`来说应该是开箱即用的，只要您在`setup`函数，`getters`和`actions`的顶部调用您的`useStore()`函数:
 
 ```js
 export default defineComponent({
@@ -19,9 +19,9 @@ export default defineComponent({
 
 
 
-## 不在setup()中使用store
+## 不在 setup() 中使用 store
 
-如果你需要在其他地方使用`store`，则需要将传递给应用程序`pinia`的实例传递给`useStore()`函数调用:
+如果您需要在其他地方使用`store`，则需要将传递给应用程序`pinia`的实例传递给`useStore()`函数调用:
 
 ```js
 const pinia = createPinia()
@@ -73,7 +73,7 @@ app.use(pinia)
 devalue(pinia.state.value)
 ```
 
-根据您`SSR`使用的内容，您将设置一个将在`HTML`序列化的初始状态变量。您还应该保护自己免受`XSS`攻击。例如，使用[`vite-ssr`](https://github.com/frandiox/vite-ssr)库您就可以使用[`transformState`](https://github.com/frandiox/vite-ssr#state-serialization)方法和`@nuxt/devalue`插件：
+根据您`SSR`使用的内容，您将设置一个将在`HTML`序列化的初始状态变量。您还应该保护自己免受`XSS`攻击。例如，使用[`vite-ssr`](https://github.com/frandiox/vite-ssr)库您就可以使用`transformState`方法和`@nuxt/devalue`插件：
 
 ```js
 import devalue from '@nuxt/devalue'

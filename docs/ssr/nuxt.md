@@ -2,6 +2,8 @@
 
 `Pinia`与`Nuxt.js`一起使用是更容易的，因为`Nuxt`在服务器端渲染方面处理了很多事情。例如，您不需要关心序列化或`XSS`攻击的问题。
 
+
+
 ## 安装
 
 请确保`pinia`和[`@nuxtjs/composition-api`](https://composition-api.nuxtjs.org/)一起安装：
@@ -29,9 +31,11 @@ export default {
 
 就是这样，像往常一样使用您的`store`！
 
-## 不在setup()中使用store
 
-如果您不想在`setup()`中使用`store`，请记住将`pinia`对象传递给`useStore()`。我们将它添加到上下文中，这样你就可以在`asyncData()`和`fetch()`中访问它:
+
+## 不在 setup() 中使用 store
+
+如果您不想在`setup()`中使用`store`，请记住将`pinia`对象传递给`useStore()`。我们将它添加到[上下文](https://nuxtjs.org/docs/internals-glossary/context/)中，这样你就可以在`asyncData()`和`fetch()`中访问它:
 
 ```js
 import { useStore } from '~/stores/myStore'
@@ -43,9 +47,11 @@ export default {
 }
 ```
 
-## 在stores中使用Nuxt上下文
 
-通过使用注入的`$nuxt`属性，你也可以在任何`store`中使用上下文：
+
+## 在 stores 中使用 Nuxt 上下文
+
+通过使用注入的`$nuxt`属性，你也可以在任何`store`中使用[上下文](https://nuxtjs.org/docs/internals-glossary/context/)：
 
 ```js
 import { useUserStore } from '~/stores/userStore'

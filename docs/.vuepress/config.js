@@ -63,16 +63,16 @@ module.exports = {
             },
             {
                 title: '服务端渲染（SSR）',
-                path: '/ssr/vue',
+                path: '/ssr/vue-and-vite',
                 collapsable: false,
                 children: [
                     {
                         title: 'Vue和Vite',
-                        path: '/ssr/vue'
+                        path: '/ssr/vue-and-vite'
                     },
                     {
-                        title: 'Next',
-                        path: '/ssr/next'
+                        title: 'Nuxt',
+                        path: '/ssr/nuxt'
                     }
                 ]
             }
