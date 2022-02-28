@@ -1,6 +1,12 @@
 module.exports = {
     title: 'Pinia 中文文档',
-    description: 'Pinia 中文文档(详细翻译官方文档)',
+    description: '文档内容详细翻译自官方英文文档',
+    base: '/pinia-doc-cn/',
+    locales: {
+        '/': {
+            lang: 'zh-CN'
+        }
+    },
     themeConfig: {
         nav: [
             {
@@ -70,6 +76,11 @@ module.exports = {
                     }
                 ]
             }
-        ]
+        ],
+        docsRepo: 'baimingxuan/pinia-doc-cn',
+        docsDir: 'docs',
+        docsBranch: 'main',
+        editLinks: true,
+        editLinkText: '在 GitHub 上编辑此页'
     }
 }
