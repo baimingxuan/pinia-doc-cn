@@ -26,28 +26,32 @@ module.exports = {
             },
             {
                 title: '核心概念',
-                path: '/core/defined',
+                path: '/core/defining-store',
                 collapsable: false,
                 children: [
                     {
                         title: '定义Store',
-                        path: '/core/defined'
+                        path: '/core/defining-store'
                     },
                     {
                         title: 'State',
-                        path: '/core/State'
+                        path: '/core/state'
                     },
                     {
                         title: 'Getters',
-                        path: '/core/Getters'
+                        path: '/core/getters'
                     },
                     {
                         title: 'Actions',
-                        path: '/core/Actions'
+                        path: '/core/actions'
                     },
                     {
                         title: 'Plugins',
-                        path: '/core/Plugins'
+                        path: '/core/plugins'
+                    },
+                    {
+                        title: '组件外使用Store',
+                        path: '/core/outside-component-usage'
                     }
                 ]
             },
