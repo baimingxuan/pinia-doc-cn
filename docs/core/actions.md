@@ -1,6 +1,6 @@
 # Actions
 
-Actions 相当于组件中的 [methods](https://v3.vuejs.org/guide/data-methods.html#methods) 。可以使用 `defineStore()`中的 actions 属性来定义它们，并且它们非常适合定义业务逻辑：
+`Actions`相当于组件中的 [`methods`](https://v3.vuejs.org/guide/data-methods.html#methods) 。可以使用`defineStore()`中的`actions`属性来定义它们，并且它们非常适合定义业务逻辑：
 
 ```js
 export const useStore = defineStore('main', {
@@ -18,7 +18,7 @@ export const useStore = defineStore('main', {
 })
 ```
 
-和 [getter](https://pinia.vuejs.org/core-concepts/getters.html) 一样，actions 通过`this`来访问整个 store 实例，还有完整的类型支持（和自动补全功能）。与它们不同的是，**`actions`**可以是异步的，您可以在它们内部进行任何 API 的调用，甚至其他操作！下面是一个使用 [Mande 的示例。请注意，](https://github.com/posva/mande)只要你得到了[一个 `Promise`](https://github.com/posva/mande) ，你使用什么样的库并不重要，[您甚至可以使用](https://github.com/posva/mande)原生的 `fetch` 函数（仅适用于浏览器端）：
+和`getter`一样，`actions`通过`this`来访问整个`store`实例，还有完整的类型支持（和自动补全功能）。与它们不同的是，**`actions`**可以是异步的，您可以在它们内部进行任何`API`的调用，甚至其他操作！下面是一个使用`Mande`的示例。请注意，只要你得到了[一个`Promise`](https://github.com/posva/mande) ，你使用什么样的库并不重要，您甚至可以使用原生的`fetch`函数（仅适用于浏览器端）：
 
 ```js
 import { mande } from 'mande'
@@ -46,11 +46,11 @@ export const useUsers = defineStore('users', {
 })
 ```
 
-您也可以完全自由地设置任何您想要的参数并返回任何东西。当调用动作时，一切都会被自动推断出来!
+您也可以完全自由地设置任何您想要的参数并返回任何东西。当调用`actions`时，一切都会被自动推断出来!
 
-Actions 与 methods 调用类似：
+`actions`与`methods`调用类似：
 
-```vue
+```js
 export default defineComponent({
   setup() {
     const main = useMainStore()
@@ -66,7 +66,7 @@ export default defineComponent({
 
 ## 访问其他 stores 的 actions
 
-要使用另一个 store，您可以直接在 action 内部使用它：
+要使用另一个`store`，您可以直接在`action`内部使用它：
 
 ```js
 import { useAuthStore } from './auth-store'
@@ -90,9 +90,9 @@ export const useSettingsStore = defineStore('settings', {
 
 
 
-## 使用 setup()
+## setup() 中的用法
 
-您可以直接调用任何 action 作为 store 的方法：
+您可以直接调用任何`action`作为`store`的方法：
 
 ```js
 export default {
@@ -106,15 +106,15 @@ export default {
 
 
 
-## 使用 Options API
+## Options API 中的用法
 
-对于以下示例，您可以假设创建了以下 store :
+对于以下示例，您可以假设创建了以下`store `:
 
 ```js
 // Example File Path:
 // ./src/stores/counterStore.js
 
-import { defineStore } from 'pinia',
+import { defineStore } from 'pinia'
 
 const useCounterStore = defineStore('counterStore', {
   state: () => ({
@@ -128,9 +128,9 @@ const useCounterStore = defineStore('counterStore', {
 })
 ```
 
-### 在 setup() 中使用
+### 使用 setup() 
 
-虽然 Composition API 并不适合所有人，但 setup() 钩子可以让 Pinia 更容易在 Options API中使用。不需要额外的辅助函数！
+虽然`Composition API`并不适合所有人，但`setup()`钩子可以让`Pinia`更容易在`Options API`中使用。不需要额外的辅助函数！
 
 ```js
 import { useCounterStore } from '../stores/counterStore'
@@ -150,9 +150,9 @@ export default {
 }
 ```
 
-### 不在 setup() 中使用
+### 不使用 setup()
 
-如果您根本不想使用 Composition API，您可以使用 mapActions() 辅助函数将 actions 属性映射为组件中的 methods：
+如果您根本不想使用`Composition API`，您可以使用`mapActions()`辅助函数将`actions`属性映射为组件中的`methods`：
 
 ```js
 import { mapActions } from 'pinia'
@@ -162,7 +162,7 @@ export default {
   methods: {
     // gives access to this.increment() inside the component
     // same as calling from store.increment()
-    ...mapActions(useCounterStore, ['increment'])
+    ...mapActions(useCounterStore, ['increment']),
     // same as above but registers it as this.myOwnName()
     ...mapActions(useCounterStore, { myOwnName: 'doubleCounter' }),
   },
@@ -173,11 +173,9 @@ export default {
 
 ## 订阅 actions
 
-可以使用`store.$onAction()`来观察 actions 及其结果。传递给它的回调函数在 action 本身之前执行。在处理 promises 之后，允许您在 action 解决之后执行函数。类似地，`onError`允许你在 action 抛出或拒绝时执行函数。这些对于在运行时跟踪错误很有用，类似于
+可以使用`store.$onAction()`来观察`actions`及其结果。传递给它的回调函数在`action`本身之前执行。在处理`promises`之后，允许您在`action resolves`之后执行函数。类似地，`onError`允许你在`action`抛出或`rejects`时执行函数。这些对于在运行时跟踪错误很有用，类似于[Vue文档中的这个技巧。](https://v3.vuejs.org/guide/tooling/deployment.html#tracking-runtime-errors)
 
-[Vue 文档中的这个属性。](https://v3.vuejs.org/guide/tooling/deployment.html#tracking-runtime-errors)
-
-下面是一个在运行 actions 之前和resolve/reject之后记录日志的示例。
+下面是一个在运行`actions`之前和`resolve/reject`之后记录日志的示例。
 
 ```js
 const unsubscribe = someStore.$onAction(
@@ -216,7 +214,7 @@ const unsubscribe = someStore.$onAction(
 unsubscribe()
 ```
 
-默认情况下，操作订阅被绑定到添加它们的组件（如果 store 在组件的 setup() 中）。这就意味着，当组件被卸载时，它们将被自动删除。如果你想在组件卸载后保留它们，传`true`作为第二个参数，以将操作订阅与当前组件分离：
+默认情况下，`action`订阅被绑定到添加它们的组件（如果`store`在组件的`setup()`中）。这就意味着，当组件被卸载时，它们将被自动删除。如果你想在组件卸载后保留它们，传`true`作为第二个参数，以将操作订阅与当前组件分离：
 
 ```js
 export default {
