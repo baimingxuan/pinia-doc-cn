@@ -1,14 +1,16 @@
-# 操作指引
-
 # 从 Vuex≤4 迁移
 
-尽管`Vuex`和`Pinia`的`store`结构不同，但许多逻辑可以重用。本指南旨在帮助您完成整个过程，并指出可能出现的一些常见问题。
+尽管`Vuex`和`Pinia`的`stores`结构不同，但许多逻辑可以重用。本指南旨在帮助您完成整个过程，并指出可能出现的一些常见问题。
+
+
 
 ## 准备
 
-首先，按照[入门指南](https://pinia.vuejs.org/getting-started.html)安装 `Pinia`。
+首先，按照[入门指南](https://baimingxuan.net/pinia-doc-cn/guide/getting-started.html)安装 `Pinia`。
 
-## 将模块重组为Store
+
+
+## 将模块重组为 Store
 
 Vuex 有个单一`store`包含多模块的的概念。这些模块可以选择使用命名空间，甚至可以相互嵌套。
 
@@ -50,7 +52,7 @@ src
 
 这是个将`Vuex`模块转换为`Pinia``store`前后的完整示例，请参阅下面的分步指南。`Pinia`示例使用选项`store`，因为它的结构与`Vuex`最相似：
 
-```typescript
+```ts
 // Vuex module in the 'auth/user' namespace
 import { Module } from 'vuex'
 import { api } from '@/api'
@@ -107,6 +109,9 @@ const storeModule: Module<State, RootState> = {
 }
 
 export default storeModule
+```
+
+```ts
 // Pinia Store
 import { defineStore } from 'pinia'
 import { useAuthPreferencesStore } from './auth-preferences'
@@ -181,20 +186,20 @@ export const useAuthUserStore = defineStore('auth/user', {
 
 3. 转换`getters`
 
-4. 1. 删除所有返回相同名称的状态的`getters`(如`firstName:(state) => state.firstName`)这些不是必需的，因为您可以直接从`store`实例访问任何状态
-   2. 如果您需要访问其它`getters`，可以使用`this`代替，而不是使用第二个参数。请记住，如果您正在使用`this`，那么您将不得不使用常规函数而不是箭头函数。另外请注意，由于`TS`的限制，您需要返回指定的类型，请参阅[此处](https://pinia.vuejs.org/core-concepts/getters.html#accessing-other-getters)了解更多详细信息
-   3. 如果使用`rootState`或`rootGetters`参数，则通过直接导入其他`store`来替换它们，或者如果它们仍然存在于`Vuex`中，则直接从`Vuex`访问它们
+4. 1. 删除任何以相同名称返回状态的`getters`(如`firstName:(state) => state.firstName`)这些不是必需的，因为您可以直接从`store`实例访问任何状态
+    2. 如果您需要访问其它`getters`，可以使用`this`代替，而不是使用第二个参数。请记住，如果您正在使用`this`，那么您将不得不使用常规函数而不是箭头函数。另外请注意，由于`TS`的限制，您需要返回指定的类型，请参阅此处了解更多详细信息
+    3. 如果使用`rootState`或`rootGetters`参数，则通过直接导入其他`store`来替换它们，或者如果它们仍然存在于`Vuex`中，则直接从`Vuex`访问它们
 
 5. 转换`actions`
 
 6. 1. 从所有`action`中删除第一个`context`参数，所有东西都应该通过`this`访问
-   2. 如果使用其它的`stores`，要么直接导入它们，要么在`Vuex`上访问它们，这与`getters`一样
+    2. 如果使用其它的`stores`，要么直接导入它们，要么在`Vuex`上访问它们，这与`getters`一样
 
 7. 转换`mutations`
 
 8. 1. `mutations`不再存在。这些可以转换为`actions`，或者您可以直接分配给组件中的`store`(例如：`userStore.firstName = 'First'`)
-   2. 如果转换为`actions，`则需删除第一个参数`state`，并用`this`代替所有工作
-   3. 一个常见的`mutation`是将状态重置回初始状态。这是`store`中`$reset`方法的内置功能。请注意，此功能仅适用于选项`stores`。
+    2. 如果转换为`actions，`则需删除第一个参数`state`，并用`this`代替所有工作
+    3. 一个常见的`mutation`是将状态重置回初始状态。这是`store`中`$reset`方法的内置功能。请注意，此功能仅适用于`option stores`。
 
 如您所见，您的大部分代码都可以重用。如果遗漏了什么，类型安全还会帮助您确定需要更改什么。
 
@@ -208,7 +213,7 @@ export const useAuthUserStore = defineStore('auth/user', {
 
 如果您正在使用`useStore`，则直接导入新`store`并访问其上的状态。例如：
 
-```typescript
+```ts
 // Vuex
 import { defineComponent, computed } from 'vue'
 import { useStore } from 'vuex'
@@ -226,6 +231,9 @@ export default defineComponent({
     }
   }
 })
+```
+
+```ts
 // Pinia
 import { defineComponent, computed } from 'vue'
 import { useAuthUserStore } from '@/stores/auth-user'
@@ -253,7 +261,7 @@ export default defineComponent({
 
 只要注意不在函数外部使用`store`，更新组件之外的用法都是很简单的。这是在`Vue Router`导航守卫中使用`store`的示例：
 
-```typescript
+```ts
 // Vuex
 import vuexStore from '@/store'
 
@@ -261,7 +269,10 @@ router.beforeEach((to, from, next) => {
   if (vuexStore.getters['auth/user/loggedIn']) next()
   else next('/login')
 })
-/ Pinia
+```
+
+```ts
+// Pinia
 import { useAuthUserStore } from '@/stores/auth-user'
 
 router.beforeEach((to, from, next) => {
@@ -272,13 +283,15 @@ router.beforeEach((to, from, next) => {
 })
 ```
 
-想了解更多细节可以点击 [这里](https://pinia.vuejs.org/core-concepts/outside-component-usage.html)。
+想了解更多细节可以点击 [这里](https://baimingxuan.net/pinia-doc-cn/core/outside-component-usage.html) 。
 
 
 
 ## Vuex 进阶使用
 
-如果您`Vuex`的`store`使用了它提供的一些更高级的功能，下面是一些关于如何在`Pinia `完成相同功能的指南。其中一些要点已收录在 [比较摘要](https://pinia.vuejs.org/introduction.html#comparison-with-vuex-3-x-4-x) 中。
+如果您`Vuex`的`store`使用了它提供的一些更高级的功能，下面是一些关于如何在`Pinia `完成相同功能的指南。其中一些要点已收录在
+
+比较摘要中。
 
 ### 动态模块
 
@@ -286,10 +299,16 @@ router.beforeEach((to, from, next) => {
 
 ### 热模块更新
 
-`HMR`也受支持，但需要替换，请参阅[`HMR`指南](https://pinia.vuejs.org/cookbook/hot-module-replacement.html)。
+`HMR`也受支持，但需要替换，请参阅`HMR`指南。
 
 ### 插件
 
 如果您使用开源的`Vuex`插件，那么检查是否有`Pinia`的替代品。如果没有，您将需要自己编写或评估该插件是否仍然必要。
 
-如果您已经编写了自己的插件，那么很可能需要对其更新，以便能与`Pinia`一起使用。请参阅[插件指南](https://pinia.vuejs.org/core-concepts/plugins.html)。
+
+
+
+
+如果您已经编写了自己的插件，那么很可能需要对其更新，以便能与`Pinia`一起使用。请参阅
+
+[插件指南](https://baimingxuan.net/pinia-doc-cn/core/plugins.html)。
