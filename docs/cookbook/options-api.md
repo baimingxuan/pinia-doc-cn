@@ -1,12 +1,14 @@
-# 不使用 setup()
+# 不使用 setup() 的用法
 
 即使不使用`Composition API`，也可以使用`Pinia`(如果您使用的是`Vue 2`，就需要安装`@vue/composition-api`插件)。虽然我们建议您尝试使用`Composition API`或者学习它，但现在对于您和您的团队可能还不是时候，您可能正在迁移应用程序的过程中，或者出于其他原因。这儿有几个可能帮到你函数:
 
-- [mapStores](https://pinia.vuejs.org/cookbook/options-api.html#giving-access-to-the-whole-store)
-- [mapState](https://pinia.vuejs.org/core-concepts/state.html#options-api)
-- [mapWritableState](https://pinia.vuejs.org/core-concepts/state.html#modifiable-state)
-- ⚠️ [mapGetters](https://pinia.vuejs.org/core-concepts/getters.html#options-api) (只是为了迁移方便, 用`mapState()`替代)
-- [mapActions](https://pinia.vuejs.org/core-concepts/actions.html#options-api)
+- mapStores
+- mapState
+- mapWritableState
+- ⚠️ mapGetters (只是为了迁移方便, 用`mapState()`替代)
+- mapActions
+
+
 
 ## 获取整个 store 的访问权限
 
@@ -55,13 +57,15 @@ setMapStoreSuffix('_store')
 export const pinia = createPinia()
 ```
 
+
+
 ## TypeScript
 
 默认情况下，所有的辅助函数都提供自动补全的功能，因此你不需要做任何事情。
 
 如果您调用`setMapStoreSuffix()`更改`"Store"`后缀，您还需要将其添加到`TS`文件或`global.d.ts`文件中的某个地方。最方便的地方是您调用`setMapStoreSuffix()`的地方：
 
-```typescript
+```ts
 import { createPinia, setMapStoreSuffix } from 'pinia'
 
 setMapStoreSuffix('') // completely remove the suffix
@@ -75,6 +79,5 @@ declare module 'pinia' {
 }
 ```
 
-WARNING
-
-如果您使用`TypeScript`声明文件（如`global.d.ts`），请确保在它的头部引入`'pinia'`来公开所有现有的类型。
+> WARNING
+> 如果您使用`TypeScript`声明文件（如`global.d.ts`），请确保在它的头部引入`'pinia'`来公开所有现有的类型。
