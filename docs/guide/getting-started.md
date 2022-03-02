@@ -9,9 +9,9 @@ npm install pinia
 ```
 
 > TIP
-> 如果您的应用使用的是`Vue 2`，你还需要安装 `composition api`: `@vue/composite-api`。如果您正在使用`Nuxt`，也应遵循这些说明。
+> 如果您的应用使用的是`Vue 2`，你还需要安装 `composition api`: `@vue/composite-api`。如果您正在使用`Nuxt`，也应遵循[这些说明](https://baimingxuan.net/pinia-doc-cn/ssr/nuxt.html)。
 
-如果你使用的是`Vue CLI`，你可以试试这个非官方的插件。
+如果你使用的是`Vue CLI`，你可以试试这个[非官方的插件](https://github.com/wobsoriano/vue-cli-plugin-pinia)。
 
 创建一个`pinia`(根`store`)并将其传递给应用程序：
 
@@ -45,7 +45,7 @@ new Vue({
 
 ## 什么是Store？
 
-`Store`(如`Pinia`)是保存状态和业务逻辑的实体，它没有绑定到组件树。换句话说，它承载全局状态。它有点像一个总是存在的组件，每个人都可以读取和写入。它有三个核心概念，`state`、`getters`和`actions`，可以想当然地认为这些概念等同于组件中的`data`、`computed` 和`methods`。
+`Store`(如`Pinia`)是保存状态和业务逻辑的实体，它没有绑定到组件树。换句话说，它承载全局状态。它有点像一个总是存在的组件，每个人都可以读取和写入。它有三个核心概念，[state](https://baimingxuan.net/pinia-doc-cn/core/state.html)、[getters](https://baimingxuan.net/pinia-doc-cn/core/getters.html) 和 [actions](https://baimingxuan.net/pinia-doc-cn/core/actions.html)，可以想当然地认为这些概念等同于组件中的`data`、`computed` 和`methods`。
 
 
 

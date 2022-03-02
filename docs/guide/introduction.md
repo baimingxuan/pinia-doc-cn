@@ -1,6 +1,6 @@
 ## 介绍
 
-**`Pinia`**最初是在2019年11月左右使用`Composition API`重新设计`Vue Store`的一个试验。从那时起，最初的原则仍然相同，但`Pinia`同时适用于`Vue 2`和`Vue 3`，并且不要求您使用`Composition API`。除了安装和`SSR`之外，两者的`API`都是相同的，这些文档针对`Vue 3`，并在必要时提供有关`Vue 2`的注释，以便`Vue 2`和`Vue 3`的用户都可以阅读！
+**`Pinia`**最初是在2019年11月左右使用[Composition API](https://v3.cn.vuejs.org/guide/composition-api-introduction.html)重新设计`Vue Store`的一个试验。从那时起，最初的原则仍然相同，但`Pinia`同时适用于`Vue 2`和`Vue 3`，并且不要求您使用`Composition API`。除了安装和`SSR`之外，两者的`API`都是相同的，这些文档针对`Vue 3`，并在必要时提供有关`Vue 2`的注释，以便`Vue 2`和`Vue 3`的用户都可以阅读！
 
 
 
@@ -29,7 +29,7 @@
 
 ## 基础示例
 
-这就是使用`Pinia`在`API`方面的样子（请务必查看入门指南中的完整说明）。首先创建一个 `store`：
+这就是使用`Pinia`在`API`方面的样子（请务必查看[入门指南](https://baimingxuan.net/pinia-doc-cn/guide/getting-started.html)中的完整说明）。首先创建一个 `store`：
 
 ```js
 // stores/counter.js
@@ -80,7 +80,7 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
-如果您还不熟悉`setup()`和`Composition API`，不用担心，`Pinia`还支持一组类似`Vuex`的辅助函数。您也可以用同样的方式定义`store`，但是要使用`mapStores()`、`mapState()`或`mapActions()`调用它：
+如果您还不熟悉`setup()`和`Composition API`，不用担心，`Pinia`还支持一组类似[Vuex辅助函数](https://vuex.vuejs.org/zh/guide/state.html#mapstate-%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0)。您也可以用同样的方式定义`store`，但是要使用`mapStores()`、`mapState()`或`mapActions()`调用它：
 
 ```js
 const useCounterStore = defineStore('counter', {
@@ -208,4 +208,4 @@ export const todos = defineStore('todos', {
 
 - 没有模块的命名空间。鉴于`stores`的扁平架构，“命名空间”的`store`与它们的定义方式是固有的，您可以说所有`store`都有命名空间的。
 
-有关如何将一个现有的`Vuex ≤ 4`项目转换为使用`Pinia`的更详细说明，请参阅从`Vuex`迁移指南。
+有关如何将一个现有的`Vuex ≤ 4`项目转换为使用`Pinia`的更详细说明，请参阅[从Vuex迁移指南](https://baimingxuan.net/pinia-doc-cn/cookbook/migration-vuex.html)。
