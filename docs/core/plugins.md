@@ -177,7 +177,7 @@ pinia.use(({ store }) => {
 
 ## 在插件内部调用 $subscribe
 
-您也可以在插件中使用`store.$subscribe`和`store.$onAction`：
+您也可以在插件中使用[store.$subscribe](https://baimingxuan.net/pinia-doc-cn/core/state.html#%E8%AE%A2%E9%98%85-state)和[store.$onAction](https://baimingxuan.net/pinia-doc-cn/core/actions.html#%E8%AE%A2%E9%98%85-actions):
 
 ```ts
 pinia.use(({ store }) => {

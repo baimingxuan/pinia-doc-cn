@@ -37,7 +37,7 @@ export default {
 
 您可以根据需要定义任意数量的`store`，并且应该在不同的文件中定义每个`store`以充分利用 `Pinia`(例如自动允许您的`bundle`进行代码拆分和`TypeScript`推理)。
 
-如果您还没有使用`setup`组件，您仍然可以将`Pinia`与辅助函数一起使用。
+如果您还没有使用`setup`组件，您仍然可以[将Pinia与辅助函数一起使用](https://baimingxuan.net/pinia-doc-cn/cookbook/options-api.html)。
 
 一旦`Store`被实例化，您就可以直接在`store`上访问在`state`、`getters` 和`actions`中定义的任何属性。我们将在下一章中看到这些细节，自动补全功能也将帮助你。 
 

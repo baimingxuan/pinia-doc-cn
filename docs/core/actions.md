@@ -18,7 +18,7 @@ export const useStore = defineStore('main', {
 })
 ```
 
-和`getter`一样，`actions`通过`this`来访问整个`store`实例，还有完整的类型支持（和自动补全功能）。与它们不同的是，**`actions`**可以是异步的，您可以在它们内部进行任何`API`的调用，甚至其他操作！下面是一个使用`Mande`的示例。请注意，只要你得到了[一个`Promise`](https://github.com/posva/mande) ，你使用什么样的库并不重要，您甚至可以使用原生的`fetch`函数（仅适用于浏览器端）：
+和[getters](https://baimingxuan.net/pinia-doc-cn/core/getters.html)一样，`actions`通过`this`来访问整个`store`实例，还有完整的类型支持（和自动补全功能）。与它们不同的是，**`actions`**可以是异步的，您可以在它们内部进行任何`API`的调用，甚至其他操作！下面是一个使用[Mande](https://github.com/posva/mande)的示例。请注意，只要你得到了一个`Promise` ，你使用什么样的库并不重要，您甚至可以使用原生的`fetch`函数（仅适用于浏览器端）：
 
 ```js
 import { mande } from 'mande'
@@ -173,7 +173,7 @@ export default {
 
 ## 订阅 actions
 
-可以使用`store.$onAction()`来观察`actions`及其结果。传递给它的回调函数在`action`本身之前执行。在处理`promises`之后，允许您在`action resolves`之后执行函数。类似地，`onError`允许你在`action`抛出或`rejects`时执行函数。这些对于在运行时跟踪错误很有用，类似于[Vue文档中的这个技巧。](https://v3.vuejs.org/guide/tooling/deployment.html#tracking-runtime-errors)
+可以使用`store.$onAction()`来观察`actions`及其结果。传递给它的回调函数在`action`本身之前执行。在处理`promises`之后，允许您在`action resolves`之后执行函数。类似地，`onError`允许你在`action`抛出或`rejects`时执行函数。这些对于在运行时跟踪错误很有用，类似于[Vue文档中的这个技巧。](https://v3.cn.vuejs.org/guide/tooling/deployment.html#%E8%B7%9F%E8%B8%AA%E8%BF%90%E8%A1%8C%E6%97%B6%E9%94%99%E8%AF%AF)
 
 下面是一个在运行`actions`之前和`resolve/reject`之后记录日志的示例。
 

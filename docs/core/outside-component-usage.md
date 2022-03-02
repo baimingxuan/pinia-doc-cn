@@ -58,4 +58,4 @@ router.beforeEach((to) => {
 
 当处理服务器端渲染时，你必须将`pinia`实例传递给`useStore()`。这将防止`pinia`在不同的应用程序实例之间共享全局状态。
 
-在`SSR`指南中有一个完整的章节，这只是一个简短的解释。
+在[SSR指南](https://baimingxuan.net/pinia-doc-cn/ssr/vue-and-vite.html)中有一个完整的章节，这只是一个简短的解释。

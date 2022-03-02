@@ -170,7 +170,7 @@ cartStore.$patch((state) => {
 store.$state = { counter: 666, name: 'Paimon' }
 ```
 
-您还可以通过更改 `pinia`实例的`state`来替换应用程序的整个状态。这在[SSR 注水](https://pinia.vuejs.org/ssr/#state-hydration)中使用。
+您还可以通过更改 `pinia`实例的`state`来替换应用程序的整个状态。这在[SSR 注水](https://baimingxuan.net/pinia-doc-cn/ssr/vue-and-vite.html#%E7%8A%B6%E6%80%81%E6%B3%A8%E6%B0%B4)中使用。
 
 ```js
 pinia.state.value = {}
@@ -180,7 +180,7 @@ pinia.state.value = {}
 
 ## 订阅 State
 
-您可以通过`store`的`$subscribe()`方法查看状态及其变化，这与`Vuex`的 [subscribe 方法](https://vuex.vuejs.org/api/#subscribe)类似。与常规的`watch()`相比，使用`$subscribe()`的优势在于，订阅只会在`patches`之后触发一次(例如，当使用上面的函数版本时)。
+您可以通过`store`的`$subscribe()`方法查看状态及其变化，这与`Vuex`的 [subscribe 方法](https://vuex.vuejs.org/zh/api/index.html#subscribe)类似。与常规的`watch()`相比，使用`$subscribe()`的优势在于，订阅只会在`patches`之后触发一次(例如，当使用上面的函数版本时)。
 
 ```js
 cartStore.$subscribe((mutation, state) => {

@@ -56,7 +56,7 @@ export default {
 
 ## 访问其他 getters
 
-与计算属性一样，您可以组合多个`getters`。通过`this`访问任何其他的`getters`。即使您不使用`TypeScript`，您也可以使用`JSDoc`提示`IDE`输入的类型：
+与计算属性一样，您可以组合多个`getters`。通过`this`访问任何其他的`getters`。即使您不使用`TypeScript`，您也可以使用[JSDoc](https://jsdoc.app/tags-returns.html)提示`IDE`输入的类型：
 
 ```js
 export const useStore = defineStore('main', {
