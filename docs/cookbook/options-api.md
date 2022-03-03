@@ -2,11 +2,11 @@
 
 即使不使用`Composition API`，也可以使用`Pinia`(如果您使用的是`Vue 2`，就需要安装`@vue/composition-api`插件)。虽然我们建议您尝试使用`Composition API`或者学习它，但现在对于您和您的团队可能还不是时候，您可能正在迁移应用程序的过程中，或者出于其他原因。这儿有几个可能帮到你函数:
 
-- mapStores
-- mapState
-- mapWritableState
-- ⚠️ mapGetters (只是为了迁移方便, 用`mapState()`替代)
-- mapActions
+- [mapStores](https://baimingxuan.net/pinia-doc-cn/cookbook/options-api.html#%E8%8E%B7%E5%8F%96%E6%95%B4%E4%B8%AA-store-%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90)
+- [mapState](https://baimingxuan.net/pinia-doc-cn/core/state.html)
+- [mapWritableState](https://baimingxuan.net/pinia-doc-cn/core/state.html#%E5%8F%AF%E4%BF%AE%E6%94%B9%E7%9A%84-state)
+- ⚠️ [mapGetters](https://baimingxuan.net/pinia-doc-cn/core/getters.html) (只是为了迁移方便, 用`mapState()`替代)
+- [mapActions](https://baimingxuan.net/pinia-doc-cn/core/actions.html)
 
 
 

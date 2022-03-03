@@ -10,10 +10,10 @@
 
 - 测试 `Stores`
 
-- - 单元测试`store`
-    - 单元测试组件
-    - `E2E`测试
-    - 单元测试组件(`Vue 2`)
+- - [单元测试store](https://baimingxuan.net/pinia-doc-cn/cookbook/testing.html#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95-store)
+  - [单元测试组件](https://baimingxuan.net/pinia-doc-cn/cookbook/testing.html#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%BB%84%E4%BB%B6)
+  - [E2E测试](https://baimingxuan.net/pinia-doc-cn/cookbook/testing.html#e2e-%E6%B5%8B%E8%AF%95)
+  - [单元测试组件(Vue 2)](https://baimingxuan.net/pinia-doc-cn/cookbook/testing.html#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%BB%84%E4%BB%B6-vue-2)
 
 
 
@@ -107,7 +107,7 @@ expect(store.someAction).toHaveBeenCalledTimes(1)
 expect(store.someAction).toHaveBeenLastCalledWith()
 ```
 
-请注意，如果您使用的是`Vue 2`， `@vue/test-utils`会有些许不同的配置。
+请注意，如果您使用的是`Vue 2`， `@vue/test-utils`会有些许[不同的配置](https://baimingxuan.net/pinia-doc-cn/cookbook/testing.html#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%BB%84%E4%BB%B6-vue-2)。
 
 [您可以在测试包的测试](https://github.com/vuejs/pinia/blob/v2/packages/testing/src/testing.spec.ts)里找到更多示例。
 
@@ -121,7 +121,7 @@ expect(store.someAction).toHaveBeenLastCalledWith()
 
 ## 单元测试组件（Vue 2）
 
-当使用`Vue Test Utils 1`时，在`localVue`上安装`Pinia`:
+当使[Vue Test Utils 1](https://v1.test-utils.vuejs.org/zh/)时，在`localVue`上安装`Pinia`:
 
 ```js
 import { PiniaVuePlugin } from 'pinia'

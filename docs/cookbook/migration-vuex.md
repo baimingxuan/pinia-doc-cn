@@ -187,7 +187,7 @@ export const useAuthUserStore = defineStore('auth/user', {
 3. 转换`getters`
 
 4. 1. 删除任何以相同名称返回状态的`getters`(如`firstName:(state) => state.firstName`)这些不是必需的，因为您可以直接从`store`实例访问任何状态
-    2. 如果您需要访问其它`getters`，可以使用`this`代替，而不是使用第二个参数。请记住，如果您正在使用`this`，那么您将不得不使用常规函数而不是箭头函数。另外请注意，由于`TS`的限制，您需要返回指定的类型，请参阅此处了解更多详细信息
+    2. 如果您需要访问其它`getters`，可以使用`this`代替，而不是使用第二个参数。请记住，如果您正在使用`this`，那么您将不得不使用常规函数而不是箭头函数。另外请注意，由于`TS`的限制，您需要返回指定的类型，请[参阅此处](https://baimingxuan.net/pinia-doc-cn/core/getters.html#%E8%AE%BF%E9%97%AE%E5%85%B6%E4%BB%96-getters)了解更多详细信息
     3. 如果使用`rootState`或`rootGetters`参数，则通过直接导入其他`store`来替换它们，或者如果它们仍然存在于`Vuex`中，则直接从`Vuex`访问它们
 
 5. 转换`actions`
@@ -209,7 +209,7 @@ export const useAuthUserStore = defineStore('auth/user', {
 
 现在您的`Vuex`模块已经转换为`Pinia store`，使用该模块的任何组件或其他文件也需要更新。
 
-如果您之前使用过 Vuex 的辅助函数，那么值得看非`setup()`的指南，因为这些辅助函数大多可以重用。
+如果您之前使用过 Vuex 的辅助函数，那么值得看[不使用setup()的用法](https://baimingxuan.net/pinia-doc-cn/cookbook/options-api.html)，因为这些辅助函数大多可以重用。
 
 如果您正在使用`useStore`，则直接导入新`store`并访问其上的状态。例如：
 
@@ -291,7 +291,7 @@ router.beforeEach((to, from, next) => {
 
 如果您`Vuex`的`store`使用了它提供的一些更高级的功能，下面是一些关于如何在`Pinia `完成相同功能的指南。其中一些要点已收录在
 
-比较摘要中。
+[比较摘要](https://baimingxuan.net/pinia-doc-cn/guide/introduction.html#%E4%B8%8E-vuex-%E5%AF%B9%E6%AF%94)中。
 
 ### 动态模块
 
@@ -299,15 +299,11 @@ router.beforeEach((to, from, next) => {
 
 ### 热模块更新
 
-`HMR`也受支持，但需要替换，请参阅`HMR`指南。
+`HMR`也受支持，但需要替换，请参阅[HMR指南](https://baimingxuan.net/pinia-doc-cn/cookbook/hot-module-replacement.html)。
 
 ### 插件
 
 如果您使用开源的`Vuex`插件，那么检查是否有`Pinia`的替代品。如果没有，您将需要自己编写或评估该插件是否仍然必要。
-
-
-
-
 
 如果您已经编写了自己的插件，那么很可能需要对其更新，以便能与`Pinia`一起使用。请参阅
 

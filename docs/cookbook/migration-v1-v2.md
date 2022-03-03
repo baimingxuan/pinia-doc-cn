@@ -14,7 +14,7 @@ npm i 'pinia@^0.x.x'
 yarn add 'pinia@^0.x.x'
 ```
 
-如果您正在使用`ESLint`，请考虑使用此插件来找到所有已弃用的内容。否则，您应该相互对比查看它们之间相同的内容。下面是那些已弃用并被移除的`API`：
+如果您正在使用`ESLint`，请考虑使用[此插件](https://github.com/gund/eslint-plugin-deprecation)来找到所有已弃用的内容。否则，您应该相互对比查看它们之间相同的内容。下面是那些已弃用并被移除的`API`：
 
 - `createStore()`变成`defineStore()`
 - 订阅中的`storeName`变成`storeId`
@@ -195,5 +195,5 @@ yarn add @pinia/nuxt
  }
 ```
 
-还建议您阅读`Nuxt`专用章节。
+还建议您阅读[Nuxt专用章节](https://baimingxuan.net/pinia-doc-cn/ssr/nuxt.html)。
 
