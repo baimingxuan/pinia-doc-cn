@@ -108,6 +108,7 @@ module.exports = {
                 ]
             }
         ],
+        lastUpdated: '上次更新时间',
         docsRepo: 'baimingxuan/pinia-doc-cn',
         docsDir: 'docs',
         docsBranch: 'main',
