@@ -170,7 +170,7 @@ cartStore.$patch((state) => {
 store.$state = { counter: 666, name: 'Paimon' }
 ```
 
-您还可以通过更改 `pinia`实例的`state`来替换应用程序的整个状态。这在[SSR 注水](https://baimingxuan.net/pinia-doc-cn/ssr/vue-and-vite.html#%E7%8A%B6%E6%80%81%E6%B3%A8%E6%B0%B4)中使用。
+您还可以通过更改 `pinia`实例的`state`来替换应用程序的整个状态。这在[SSR激活](https://baimingxuan.net/pinia-doc-cn/ssr/vue-and-vite.html#%E7%8A%B6%E6%80%81%E6%B3%A8%E6%B0%B4)中使用。
 
 ```js
 pinia.state.value = {}
