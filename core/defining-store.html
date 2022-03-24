@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>定义Store | Pinia 中文文档</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="文档内容详细翻译自官方英文文档">
+    
+    <link rel="preload" href="/pinia-doc-cn/assets/css/0.styles.7ca0e035.css" as="style"><link rel="preload" href="/pinia-doc-cn/assets/js/app.26e1221b.js" as="script"><link rel="preload" href="/pinia-doc-cn/assets/js/2.cc001fb0.js" as="script"><link rel="preload" href="/pinia-doc-cn/assets/js/15.ba038539.js" as="script"><link rel="prefetch" href="/pinia-doc-cn/assets/js/10.81b62d2b.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/11.d243ede0.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/12.04ac47d5.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/13.bd9f521e.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/14.b77cfa6e.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/16.46a1f6e6.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/17.59f4af1b.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/18.6ca16828.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/19.f941157e.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/20.b0c620ba.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/21.1ff9a2c6.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/22.e7b1edc1.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/23.6735df5c.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/3.32b655d3.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/4.b7d0708f.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/5.9e2f4ca7.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/6.c7b54f12.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/7.c7f5398c.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/8.ff83f9c5.js"><link rel="prefetch" href="/pinia-doc-cn/assets/js/9.eada0501.js">
+    <link rel="stylesheet" href="/pinia-doc-cn/assets/css/0.styles.7ca0e035.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/pinia-doc-cn/" class="home-link router-link-active"><!----> <span class="site-name">Pinia 中文文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/baimingxuan/pinia-doc-cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/baimingxuan/pinia-doc-cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/pinia-doc-cn/guide/introduction" class="sidebar-heading clickable"><span>介绍</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/pinia-doc-cn/guide/introduction.html" class="sidebar-link">Pinia是什么？</a></li><li><a href="/pinia-doc-cn/guide/getting-started.html" class="sidebar-link">快速上手</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/pinia-doc-cn/core/defining-store" class="sidebar-heading clickable open active"><span>核心概念</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/pinia-doc-cn/core/defining-store.html" aria-current="page" class="active sidebar-link">定义Store</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pinia-doc-cn/core/defining-store.html#使用store" class="sidebar-link">使用Store</a></li></ul></li><li><a href="/pinia-doc-cn/core/state.html" class="sidebar-link">State</a></li><li><a href="/pinia-doc-cn/core/getters.html" class="sidebar-link">Getters</a></li><li><a href="/pinia-doc-cn/core/actions.html" class="sidebar-link">Actions</a></li><li><a href="/pinia-doc-cn/core/plugins.html" class="sidebar-link">Plugins</a></li><li><a href="/pinia-doc-cn/core/outside-component-usage.html" class="sidebar-link">组件外使用Store</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/pinia-doc-cn/ssr/vue-and-vite" class="sidebar-heading clickable"><span>服务端渲染（SSR）</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/pinia-doc-cn/ssr/vue-and-vite.html" class="sidebar-link">Vue和Vite</a></li><li><a href="/pinia-doc-cn/ssr/nuxt.html" class="sidebar-link">Nuxt</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/pinia-doc-cn/cookbook/migration-vuex" class="sidebar-heading clickable"><span>操作手册</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/pinia-doc-cn/cookbook/migration-vuex.html" class="sidebar-link">从Vuex≤4迁移</a></li><li><a href="/pinia-doc-cn/cookbook/hot-module-replacement.html" class="sidebar-link">HMR(热模块更新)</a></li><li><a href="/pinia-doc-cn/cookbook/testing.html" class="sidebar-link">Testing(测试)</a></li><li><a href="/pinia-doc-cn/cookbook/options-api.html" class="sidebar-link">不使用setup()的用法</a></li><li><a href="/pinia-doc-cn/cookbook/composing-stores.html" class="sidebar-link">组合Stores</a></li><li><a href="/pinia-doc-cn/cookbook/migration-v1-v2.html" class="sidebar-link">从0.x(v1)迁移到v2</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="定义store"><a href="#定义store" class="header-anchor">#</a> 定义Store</h1> <p>在进入核心概念之前，我们需要知道<code>Store</code>是使用<code>defineStore()</code>定义的，并且它需要一个唯一的名称，作为第一个参数传递：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> defineStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'pinia'</span>
+
+<span class="token comment">// useStore could be anything like useUser, useCart</span>
+<span class="token comment">// the first argument is a unique id of the store across your application</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> useStore <span class="token operator">=</span> <span class="token function">defineStore</span><span class="token punctuation">(</span><span class="token string">'main'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token comment">// other options...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>这个名称(也称为<code>id)</code>是必需的，<code>Pania</code>使用它来将<code>store</code>连接到<code>devtools</code>。将返回的函数命名为<code>use...</code>是可组合项之间的约定，以使其用法符合使用习惯。</p> <h2 id="使用store"><a href="#使用store" class="header-anchor">#</a> 使用Store</h2> <p>我们定义了一个<code>Store</code>，因为只有在<code>setup()</code>中调用了<code>useStore()</code> ，<code>store</code>才会被创建：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> useStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/stores/counter'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token comment">// you can return the whole store instance to use it in the template</span>
+      store<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>您可以根据需要定义任意数量的<code>store</code>，并且应该在不同的文件中定义每个<code>store</code>以充分利用 <code>Pinia</code>(例如自动允许您的<code>bundle</code>进行代码拆分和<code>TypeScript</code>推理)。</p> <p>如果您还没有使用<code>setup</code>组件，您仍然可以<a href="https://baimingxuan.net/pinia-doc-cn/cookbook/options-api.html" target="_blank" rel="noopener noreferrer">将Pinia与辅助函数一起使用<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <p>一旦<code>Store</code>被实例化，您就可以直接在<code>store</code>上访问在<code>state</code>、<code>getters</code> 和<code>actions</code>中定义的任何属性。我们将在下一章中看到这些细节，自动补全功能也将帮助你。</p> <p>请注意，<code>Store</code>是一个用<code>reactive</code>包装的对象，这意味着不需要在<code>getter</code>后面写 <code>.value</code>，但是，就像<code>setup</code>中的<code>props</code>一样，我们不能对它进行解构:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">// ❌ This won't work because it breaks reactivity</span>
+    <span class="token comment">// it's the same as destructuring from `props`</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> doubleCount <span class="token punctuation">}</span> <span class="token operator">=</span> store
+
+    name <span class="token comment">// &quot;eduardo&quot;</span>
+    doubleCount <span class="token comment">// 2</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token comment">// will always be &quot;eduardo&quot;</span>
+      name<span class="token punctuation">,</span>
+      <span class="token comment">// will always be 2</span>
+      doubleCount<span class="token punctuation">,</span>
+      <span class="token comment">// this one will be reactive</span>
+      <span class="token literal-property property">doubleValue</span><span class="token operator">:</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>doubleCount<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>为了从<code>store</code>中提取属性，同时保持其响应性，您需要使用<code>storeToRefs()</code>。它将为任何响应性属性创建引用。当您仅使用<code>store</code>中的<code>state</code>，且不调用任何操作时，这很有用：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> storeToRefs <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'pinia'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">// `name` and `doubleCount` are reactive refs</span>
+    <span class="token comment">// This will also create refs for properties added by plugins</span>
+    <span class="token comment">// but skip any action or non reactive (non ref/reactive) property</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> doubleCount <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">storeToRefs</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      name<span class="token punctuation">,</span>
+      doubleCount
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/baimingxuan/pinia-doc-cn/edit/main/docs/core/defining-store.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新时间:</span> <span class="time">2022/3/2 下午10:49:51</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/pinia-doc-cn/guide/getting-started.html" class="prev">
+        快速上手
+      </a></span> <span class="next"><a href="/pinia-doc-cn/core/state.html">
+        State
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/pinia-doc-cn/assets/js/app.26e1221b.js" defer></script><script src="/pinia-doc-cn/assets/js/2.cc001fb0.js" defer></script><script src="/pinia-doc-cn/assets/js/15.ba038539.js" defer></script>
+  </body>
+</html>
