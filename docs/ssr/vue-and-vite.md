@@ -51,9 +51,9 @@ export default {
 
 
 
-## 状态注水
+## 状态激活
 
-为了注水初始状态，您需要确保在`HTML`的某个地方包含了`rootState`，以便`Pinia`以后可以获取它。根据您用于`SSR`的内容，出于安全原因，您应该转义该状态。我们建议使用`Nuxt.js` 的 [@nuxt/devalue](https://github.com/nuxt-contrib/devalue) 插件：
+为了激活初始状态，您需要确保在`HTML`的某个地方包含了`rootState`，以便`Pinia`以后可以获取它。根据您用于`SSR`的内容，出于安全原因，您应该转义该状态。我们建议使用`Nuxt.js` 的 [@nuxt/devalue](https://github.com/nuxt-contrib/devalue) 插件：
 
 ```js
 import devalue from '@nuxt/devalue'
@@ -101,7 +101,7 @@ export default viteSSR(
 
 您可以根据需要，使用其他替代`@nuxt/devalue`的方法，例如，如果您可以使用`JSON.stringify()`/`JSON.parse()`序列化和解析您的状态，则可以大大提高您的性能。
 
-让这个策略适应您的环境。在客户端调用任何`useStore()`函数之前，请确保`pinia`的状态注水。例如，如果我们将状态序列化为一个`<script>`标签，并使其可以在客户端通过`window.__pinia`全局访问，我们可以这样写：
+让这个策略适应您的环境。在客户端调用任何`useStore()`函数之前，请确保`pinia`的状态激活。例如，如果我们将状态序列化为一个`<script>`标签，并使其可以在客户端通过`window.__pinia`全局访问，我们可以这样写：
 
 ```js
 const pinia = createPinia()
